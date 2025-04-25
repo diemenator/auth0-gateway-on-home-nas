@@ -26,6 +26,8 @@ Home setup:
 
 Internal traffic remains decrypted for easy capture and diagnostics.
 
+![setup.puml.svg](setup.puml.svg)
+
 ### Background
 
 Previously worked with HAProxy (TCP routing over Kubernetes) and NGINX+SPNEGO setups in corporate environments to enable SSO for internal tools.  
