@@ -33,7 +33,7 @@ Internal traffic remains decrypted for easy capture and diagnostics.
 
 ### Background
 
-Previously worked with HAProxy (TCP routing over Kubernetes) and NGINX+SPNEGO setups in corporate environments to enable SSO for internal tools.  
+Built some HAProxy and NGINX+SPNEGO setups in corporate environments to enable SSO for internal tools, both web and automations.  
 Always wanted a clean OAuth2 flow for personal projects at home.
 
 ### How It Was Done
