@@ -36,3 +36,21 @@ Always wanted a clean OAuth2 flow for personal projects at home.
 - Followed tutorials for each provider (Auth0, DuckDNS, Let's Encrypt).
 - Adapted the Auth0 OIDC flow for nginx+ to OpenResty+lua fork.
 - Spent ~2 days vibing up a working prototype (with some AI assistance), and 2 more days cleaning it up to a standard.
+
+### Environment Files
+
+This project expects two environment files:
+
+- `host.env` — runtime parameters for the server setup:
+  ```bash
+  SERVER_NAME='yourdomain.duckdns.org optional.extra.hostnames internal.ip external.ip'
+  PROXY_TARGET=http://your-internal-service:port
+  DNS_RESOLVER=your.local.router.ip
+  ```
+- `auth0.env` - Auth0 OIDC client configuration:
+  ```bash  
+  AUTH0_PROTECTED_DOMAIN=yourdomain.duckdns.org
+  AUTH0_CLIENT_SECRET=your_auth0_client_secret
+  AUTH0_CLIENT_ID=your_auth0_client_id
+  AUTH0_DOMAIN=your_auth0_domain
+  ```
