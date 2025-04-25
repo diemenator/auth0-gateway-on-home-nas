@@ -56,3 +56,9 @@ This project expects two environment files:
   AUTH0_CLIENT_ID=your_auth0_client_id
   AUTH0_DOMAIN=your_auth0_domain
   ```
+
+### Backend example
+
+See poor-mans-ai-backend demo at another repo https://github.com/diemenator/poor-mans-ai-backend
+
+  
