@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  nginx:
+    build: ./nginx
+    container_name: the-nginx
+    restart: unless-stopped
+    ports:
+      - "40080:80"
+      - "40443:443"
+    volumes:
+      - /volume1/docker/proxy/certs/fullchain.pem:/etc/nginx/certs/cert.pem:ro
+      - /volume1/docker/proxy/certs/privkey.pem:/etc/nginx/certs/key.pem:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+    env_file:
+      - host.env
+      - auth0.env

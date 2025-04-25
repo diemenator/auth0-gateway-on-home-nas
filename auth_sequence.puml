@@ -1,0 +1,37 @@
+@startuml
+
+actor user
+participant auth0
+participant nginx
+
+nginx -> auth0: get configuration
+auth0 --> nginx: configuration
+user -> nginx: navigate <url>
+note over nginx
+  user session is not authenticated
+end note
+nginx --> user: redirect to auth0/authorise?state=<url>
+user -> auth0: /authorise
+
+note over auth0
+  negotiate session creds with auth0
+  and navigate back to nginx
+end note
+
+user <--> auth0
+user -> nginx: /callback?state=<url>
+
+note over nginx
+  set user session
+end note
+
+nginx <--> auth0
+nginx --> user: redirect to <url>
+user -> nginx: navigate <url>
+note over nginx
+  user session is authenticated
+  set provisional headers
+end note
+nginx -> :
+
+@enduml
