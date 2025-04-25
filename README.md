@@ -2,7 +2,7 @@
 
 ## TL;DR
 
-This repo contains example configuration and minimal steps requred to implement a secure web authz gateway using a single image nginx/openresty image.
+This repo contains example configuration and minimal steps requred to implement a secure web authz gateway using a single `nginx/openresty` container image.
 
 - Uses **OpenResty + Lua** as a drop-in alternative to nginx+ for OIDC negotiation.
 - Relies on **Auth0** and **DuckDNS** to provide zero-cost auth and dynamic DNS for a home lab setup.
