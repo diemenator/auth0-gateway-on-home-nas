@@ -1,0 +1,44 @@
+@startuml
+
+cloud "pki+oauth2+dns" {
+    card auth0
+    card duckdns
+    card letsentcrypt
+
+    actor browser
+}
+
+rectangle NAS {
+    control openresty
+    rectangle "/volume1" as vol
+}
+
+rectangle DESKTOP {
+    rectangle "gpu" as gpu
+    rectangle "ollama@docker/wsl" as runtime
+    rectangle "chainlit+langchain (py)" as fe
+}
+
+browser --d-> openresty
+browser <-.> auth0: auth
+browser -.- duckdns: resolve
+browser -.- letsentcrypt
+
+openresty <---> auth0: authenticate\ncallback
+
+vol -> openresty: config+secrets
+
+openresty -> fe
+fe -> runtime
+runtime -> gpu
+
+actor admin
+
+auth0 -.-d-> admin
+letsentcrypt -.-d-> admin
+duckdns -.-d-> admin
+
+admin -u-> vol: config+secrets
+
+
+@enduml
